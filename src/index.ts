@@ -1,23 +1,18 @@
 import express from "express"
+import IndexPage from "./app/Pages"
+import SigninPage from "./app/Pages/signin"
 
-
-// instance express appw
+// instance express app
 const app = express()
 
-
 app.use((req, res, next) => {
-    console.log(req.method);
 
-
+    // TODO: Create a auth validation to enable user acess to api
     next()
 })
 
-app.get("/:id", (req, res) => {
-    console.log(req.params);
-
-    res.json(req.params)
-})
-
+app.use("", IndexPage)
+app.use("", SigninPage)
 
 app.listen(4000, () => {
     console.log("backend iniciado com sucesSOS.");
