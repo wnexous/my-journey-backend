@@ -1,7 +1,8 @@
 import expressRouter from "../../Instances/expressRouter";
 
-const SigninPage = expressRouter.get("/signin", (req, res) => {
-    console.log(req);
+const SigninPage = expressRouter.post("/signin", (req, res) => {
+    console.log(req.body);
+    res.send("foi")
 })
 
 export default SigninPage

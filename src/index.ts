@@ -1,9 +1,14 @@
 import express from "express"
 import IndexPage from "./app/Pages"
 import SigninPage from "./app/Pages/signin"
+import bodyParser from "body-parser"
+
 
 // instance express app
 const app = express()
+app.use(bodyParser.urlencoded({ extended: false }))
+
+app.use(bodyParser.json())
 
 app.use((req, res, next) => {
 
@@ -11,8 +16,8 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use("", IndexPage)
-app.use("", SigninPage)
+app.use("/api/", IndexPage)
+app.use("/api/", SigninPage)
 
 app.listen(4000, () => {
     console.log("backend iniciado com sucesSOS.");
